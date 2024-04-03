@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="3dp"
+    android:elevation="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFB800"
+        android:gravity="center">
+
+        <CheckBox
+            android:id="@+id/cb_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="|"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            app:buttonTint ="#EF6C00"
+            />
+
+        <TextView
+            android:id="@+id/tv_Note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="Aqui va una nota"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/et_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:inputType="textCapSentences"
+            android:textColor="@color/black"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/btn_Update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:src="@drawable/update"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/btn_Delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/delte_ic"
+            app:tint="#FF0000" />
+
+        <ImageView
+            android:id="@+id/btn_Check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:src="@drawable/check_ic"
+            android:visibility="gone"
+            app:tint="#176700" />
+
+        <ImageView
+            android:id="@+id/btn_CLose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/baseline_close_24"
+            android:visibility="gone"
+            app:tint="#FF0000" />
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
