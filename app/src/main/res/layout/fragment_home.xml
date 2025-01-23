@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:layout_weight="4"
-            android:text="NOTAS"
+            android:text="CHECK LIST"
             android:textColor="@color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
