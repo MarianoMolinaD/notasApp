@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFB800"
+    android:background="@color/white"
     tools:context=".ui.fragment.HomeFragment">
 
 
@@ -12,7 +12,7 @@
         android:id="@+id/ll_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#EAAD11"
+        android:background="@color/color_primario"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,11 +56,13 @@
 
     </ScrollView>
 
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_AddNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#B1AE06"
+        android:backgroundTint="@color/color_primario"
         android:src="@drawable/add_ic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

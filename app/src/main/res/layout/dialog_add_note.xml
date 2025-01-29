@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFB800"
+        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="#FFEAAD11"
+            android:background="@color/color_primario"
             android:padding="8dp">
 
             <TextView
@@ -66,8 +66,8 @@
                 android:layout_margin="12dp"
                 android:text="Cancelar"
                 android:textStyle="bold"
-                android:textColor="@color/white"
-                android:backgroundTint="#B15006"
+                android:textColor="@color/color_primario"
+                android:backgroundTint="#dfe0df"
                 />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -79,7 +79,7 @@
                 android:textStyle="bold"
                 android:enabled="true"
                 android:textColor="@color/white"
-                android:backgroundTint="#B1AE06"
+                android:backgroundTint="@color/color_primario"
                 />
 
         </LinearLayout>

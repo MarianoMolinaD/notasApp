@@ -1,7 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id ("kotlin-kapt")
+
+    id("com.google.devtools.ksp") version "1.9.0-1.0.12"
+
 }
 
 android {
@@ -55,7 +57,7 @@ dependencies {
     //Room
     implementation ("androidx.room:room-runtime:2.6.1")
     implementation ("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
