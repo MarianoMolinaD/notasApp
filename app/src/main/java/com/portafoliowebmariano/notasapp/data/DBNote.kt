@@ -4,11 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.portafoliowebmariano.notasapp.model.Categoria
 import com.portafoliowebmariano.notasapp.model.Note
+import com.portafoliowebmariano.notasapp.model.NoteView
 import com.portafoliowebmariano.notasapp.model.Setting
 import com.portafoliowebmariano.notasapp.utils.constans.NAME_DB
 
-@Database(entities = [Note::class, Setting::class], version = 1, exportSchema = false)
+@Database(entities = [Note::class, Setting::class, NoteView::class, Categoria::class], version = 1, exportSchema = false)
 abstract class DBNote: RoomDatabase(){
 
     abstract fun daoNotes() : DaoNotes

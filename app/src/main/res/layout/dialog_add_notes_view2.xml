@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@color/color_primario"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Agregar Nota"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/note_ic"
+                app:tint="@color/white" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/et_title"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:hint="Titulo"
+            android:textColorHint="#978989"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="5dp"
+            android:padding="7dp"
+            android:background="@drawable/backgroun_add_notes" />
+
+        <EditText
+            android:id="@+id/et_Note"
+            android:typeface="normal"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:textColorHint="#978989"
+            android:minLines="4"
+            android:padding="7dp"
+            android:gravity="top"
+            android:hint="Ingrese una nota.."
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/backgroun_add_notes" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Cancelar"
+                android:textStyle="bold"
+                android:textColor="@color/color_primario"
+                android:backgroundTint="#dfe0df"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_AddNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:text="Agregar"
+                android:textStyle="bold"
+                android:enabled="true"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/color_primario"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

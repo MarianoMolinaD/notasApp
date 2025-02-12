@@ -1,5 +1,4 @@
 package com.portafoliowebmariano.notasapp.ui.ViewHolder
-
 import android.graphics.Paint
 import android.view.View
 import android.widget.Toast
@@ -31,7 +30,6 @@ class NotesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                 binding.tvNote.paintFlags =
                     binding.tvNote.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
                 onclickItemUpdate(Note(id = item.id, note = item.note, false))
-
             }
         }
         binding.btnDelete.setOnClickListener {

@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
             android:src="@drawable/update"
-            app:tint="@color/white" />
+            app:tint="@color/color_primario" />
 
         <ImageView
             android:id="@+id/btn_Delete"
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:src="@drawable/delte_ic"
-            app:tint="@color/color_primario" />
+            app:tint="#7C0808" />
 
         <ImageView
             android:id="@+id/btn_Check"
@@ -74,7 +74,7 @@
             android:layout_marginRight="10dp"
             android:src="@drawable/baseline_close_24"
             android:visibility="gone"
-            app:tint="@color/color_primario" />
+            app:tint="#7C0808" />
 
 
     </LinearLayout>

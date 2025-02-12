@@ -3,7 +3,9 @@ package com.portafoliowebmariano.notasapp.repository
 import android.content.Context
 import com.portafoliowebmariano.notasapp.data.DBNote
 import com.portafoliowebmariano.notasapp.data.DaoNotes
+import com.portafoliowebmariano.notasapp.model.Categoria
 import com.portafoliowebmariano.notasapp.model.Note
+import com.portafoliowebmariano.notasapp.model.NoteView
 import com.portafoliowebmariano.notasapp.model.Setting
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -17,15 +19,33 @@ private var daoNotes : DaoNotes = DBNote.getDataBase(context).daoNotes()
         }
     }
 
+    suspend fun addNoteView(noteView: NoteView){
+        withContext(Dispatchers.IO){
+            daoNotes.addNoteView(noteView)
+        }
+    }
+
     suspend fun addSetting(setting: Setting){
         withContext(Dispatchers.IO){
             daoNotes.addSetting(setting)
         }
     }
 
+    suspend fun addCategory(categoria: Categoria){
+        withContext(Dispatchers.IO){
+            daoNotes.addCategory(categoria)
+        }
+    }
+
     suspend fun getListNotes(): MutableList<Note>{
         return withContext(Dispatchers.IO){
             daoNotes.getNotes()
+        }
+    }
+
+    suspend fun getListNotesView(): MutableList<NoteView>{
+        return  withContext(Dispatchers.IO){
+            daoNotes.getNotesView()
         }
     }
 
@@ -38,6 +58,12 @@ private var daoNotes : DaoNotes = DBNote.getDataBase(context).daoNotes()
     suspend fun deleteNote(note: Note){
         withContext(Dispatchers.IO){
             daoNotes.deleteNote(note)
+        }
+    }
+
+    suspend fun deleteNoteView(Note: NoteView){
+        withContext(Dispatchers.IO){
+            daoNotes.deleteNoteView(Note)
         }
     }
 

@@ -42,15 +42,18 @@
         </LinearLayout>
 
         <EditText
+
             android:id="@+id/et_addNote"
             android:textColor="@color/black"
             android:layout_width="match_parent"
+            android:padding="7dp"
             android:layout_height="wrap_content"
-            android:inputType="textCapSentences"
             android:hint="Ingrese la tarea que desea agregar"
             android:layout_marginHorizontal="8dp"
             android:layout_marginVertical="5dp"
-            android:backgroundTint="@color/white" />
+            android:textColorHint="#978989"
+
+            android:background="@drawable/backgroun_add_notes"/>
 
         <LinearLayout
             android:layout_width="match_parent"
