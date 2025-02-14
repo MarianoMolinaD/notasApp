@@ -3,6 +3,7 @@ package com.portafoliowebmariano.notasapp.ui.fragment
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,14 +19,16 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.portafoliowebmariano.notasapp.R
 import com.portafoliowebmariano.notasapp.databinding.FragmentMainBinding
 import com.portafoliowebmariano.notasapp.databinding.FragmentNotesBinding
+import com.portafoliowebmariano.notasapp.model.Categoria
 import com.portafoliowebmariano.notasapp.model.NoteView
 import com.portafoliowebmariano.notasapp.ui.Adapter.NotesViewAdapter
 import com.portafoliowebmariano.notasapp.ui.dialog.DialogBottomSheet.showDialogBottomSheet
 import com.portafoliowebmariano.notasapp.viewmodel.NotesViewModel
 
 
-class NotesFragment () : Fragment() {
+class NotesFragment() : Fragment() {
     private lateinit var listNotes: MutableList<NoteView>
+    private lateinit var listCateogories: MutableList<Categoria>
     private lateinit var binding: FragmentNotesBinding
     private val notesViewModel: NotesViewModel by viewModels()
     private var order: Boolean = true
@@ -57,13 +60,23 @@ class NotesFragment () : Fragment() {
     @SuppressLint("InflateParams")
     private fun controllerNotes() {
         binding.btnAddCategory.setOnClickListener {
-            notesViewModel.showDialogBottomSheet(requireContext())
+            Log.e("Informaciones", listCateogories.toString())
+            notesViewModel.showDialogBottomSheet(requireContext(), listCateogories)
         }
     }
 
 
     private fun initUI() {
         observerListNotes()
+        observerListCategories()
+    }
+
+    private fun observerListCategories() {
+        listCateogories = mutableListOf()
+        notesViewModel.getListCategorias()
+        notesViewModel.listCategories.observe(viewLifecycleOwner) {
+            listCateogories = it
+        }
     }
 
     private fun observerListNotes() {
@@ -152,12 +165,12 @@ class NotesFragment () : Fragment() {
             toggleButtonColors(binding.btnCheck, binding.btnNotas)
         }
     }
+
     @SuppressLint("UseCompatTextViewDrawableApis")
     private fun toggleButtonColors(selectedButton: ImageView, otherButton: ImageView) {
         val primaryColor = ContextCompat.getColor(requireContext(), R.color.color_primario)
         val secondaryColor = ContextCompat.getColor(requireContext(), R.color.ColorSecundario)
         val white = ContextCompat.getColor(requireContext(), R.color.white)
-
 
 
         // Cambiar color de fondo y texto

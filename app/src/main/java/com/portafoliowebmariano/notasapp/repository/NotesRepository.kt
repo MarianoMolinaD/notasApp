@@ -42,6 +42,11 @@ private var daoNotes : DaoNotes = DBNote.getDataBase(context).daoNotes()
             daoNotes.getNotes()
         }
     }
+    suspend fun getListCategories():MutableList<Categoria>{
+        return withContext(Dispatchers.IO){
+            daoNotes.getCategories()
+        }
+    }
 
     suspend fun getListNotesView(): MutableList<NoteView>{
         return  withContext(Dispatchers.IO){

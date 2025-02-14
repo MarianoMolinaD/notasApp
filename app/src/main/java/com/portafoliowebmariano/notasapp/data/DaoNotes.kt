@@ -36,7 +36,7 @@ interface DaoNotes {
     suspend fun getSetting() : Setting
 
     @Query("SELECT * FROM Categoria")
-    suspend fun getCategories() : Categoria
+    suspend fun getCategories() : MutableList<Categoria>
 
     @Update
     suspend fun updateNote(note:Note)

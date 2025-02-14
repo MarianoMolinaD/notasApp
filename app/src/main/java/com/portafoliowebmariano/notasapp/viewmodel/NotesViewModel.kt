@@ -25,6 +25,7 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
     val listNotes = MutableLiveData<MutableList<Note>>()
     val setting = MutableLiveData<Setting>()
     val listNotesView = MutableLiveData<MutableList<NoteView>>()
+    val listCategories = MutableLiveData<MutableList<Categoria>>()
 
     fun showDialogAddNote(context: Context) {
         showDialogAddNotes(context,{addNote(it)},{getListNotes()})
@@ -68,20 +69,29 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun showDialogBottomSheet(context: Context){
-        DialogBottomSheet.showDialogBottomSheet(context){addCategoria(it)}
+    fun showDialogBottomSheet(context: Context, list: MutableList<Categoria>){
+        DialogBottomSheet.showDialogBottomSheet(context,list){addCategoria(it)}
     }
 
     fun getListNotes() {
         viewModelScope.launch {
             try {
                 listNotes.postValue(notesRepository.getListNotes())
-
             } catch (e: Exception) {
+            }
+        }
+    }
+
+    fun getListCategorias(){
+        viewModelScope.launch {
+            try {
+                listCategories.postValue(notesRepository.getListCategories())
+            }catch (e: Exception){
 
             }
         }
     }
+
     fun getListNotesView(){
         viewModelScope.launch {
             try {
