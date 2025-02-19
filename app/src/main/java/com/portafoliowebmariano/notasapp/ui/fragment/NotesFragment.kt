@@ -12,6 +12,7 @@ import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -20,10 +21,13 @@ import com.portafoliowebmariano.notasapp.R
 import com.portafoliowebmariano.notasapp.databinding.FragmentMainBinding
 import com.portafoliowebmariano.notasapp.databinding.FragmentNotesBinding
 import com.portafoliowebmariano.notasapp.model.Categoria
+import com.portafoliowebmariano.notasapp.model.Note
 import com.portafoliowebmariano.notasapp.model.NoteView
 import com.portafoliowebmariano.notasapp.ui.Adapter.NotesViewAdapter
 import com.portafoliowebmariano.notasapp.ui.dialog.DialogBottomSheet.showDialogBottomSheet
 import com.portafoliowebmariano.notasapp.viewmodel.NotesViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.coroutineScope
 
 
 class NotesFragment() : Fragment() {
@@ -59,9 +63,9 @@ class NotesFragment() : Fragment() {
 
     @SuppressLint("InflateParams")
     private fun controllerNotes() {
-        binding.btnAddCategory.setOnClickListener {
-            Log.e("Informaciones", listCateogories.toString())
-            notesViewModel.showDialogBottomSheet(requireContext(), listCateogories)
+
+            binding.btnAddCategory.setOnClickListener {
+            notesViewModel.showDialogBottomSheet(viewLifecycleOwner.lifecycleScope,requireContext(), listCateogories)
         }
     }
 
@@ -119,7 +123,8 @@ class NotesFragment() : Fragment() {
         }
 
         binding.btnAddNote.setOnClickListener {
-            notesViewModel.showDialogAddNoteView(requireContext())
+
+            notesViewModel.showDialogAddNoteView(requireContext(),listCateogories)
         }
         binding.btnMoreOption.setOnClickListener {
             if (binding.btnAddNote.isVisible && binding.btnAddCategory.isVisible) {

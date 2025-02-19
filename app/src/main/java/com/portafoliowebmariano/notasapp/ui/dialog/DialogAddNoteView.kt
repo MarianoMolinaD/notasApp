@@ -1,14 +1,18 @@
 package com.portafoliowebmariano.notasapp.ui.dialog
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.portafoliowebmariano.notasapp.databinding.DialogAddNotesView2Binding
+import com.portafoliowebmariano.notasapp.model.Categoria
 import com.portafoliowebmariano.notasapp.model.NoteView
+import com.portafoliowebmariano.notasapp.ui.Adapter.CategoriesAdapter
 
 object DialogAddNoteView {
 
-    fun showDialogAddNotesView(context : Context, addNote:(noteView: NoteView) -> Unit,
+    fun showDialogAddNotesView(context : Context,listCategorias: MutableList<Categoria> ,addNote:(noteView: NoteView) -> Unit,
                                getNotes:() -> Unit){
         val inflater = LayoutInflater.from(context)
         val binding = DialogAddNotesView2Binding.inflate(inflater)
@@ -30,6 +34,23 @@ object DialogAddNoteView {
             alertDialog.dismiss()
             getNotes()
         }
+
+        @SuppressLint("NotifyDataSetChanged")
+        fun initAdapter(list: MutableList<Categoria>) {
+
+            val recycler = binding.categoriesAddnote
+
+            val layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+            recycler.layoutManager = layoutManager
+            recycler.itemAnimator = null
+
+            val adapter = CategoriesAdapter(list)
+            recycler.adapter = adapter
+        }
+
+        // Mostrar las categorías existentes
+        initAdapter(listCategorias)
+
         alertDialog.show()
     }
 }

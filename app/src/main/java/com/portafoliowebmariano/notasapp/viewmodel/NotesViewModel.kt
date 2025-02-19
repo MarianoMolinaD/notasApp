@@ -5,6 +5,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.portafoliowebmariano.notasapp.model.Categoria
 import com.portafoliowebmariano.notasapp.model.Note
@@ -16,6 +17,7 @@ import com.portafoliowebmariano.notasapp.ui.dialog.DialogAddNoteView.showDialogA
 import com.portafoliowebmariano.notasapp.ui.dialog.DialogBottomSheet
 import com.portafoliowebmariano.notasapp.ui.dialog.DialogDeleteNote
 import com.portafoliowebmariano.notasapp.ui.dialog.DialogDeleteNote.showDialogDeleteNotes
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class NotesViewModel(application: Application) : AndroidViewModel(application) {
@@ -31,8 +33,8 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
         showDialogAddNotes(context,{addNote(it)},{getListNotes()})
     }
 
-    fun showDialogAddNoteView(context: Context){
-        showDialogAddNotesView(context, { addNoteView(it)},{getListNotesView()})
+    fun showDialogAddNoteView(context: Context,list: MutableList<Categoria>){
+        showDialogAddNotesView(context,list, { addNoteView(it)},{getListNotesView()})
     }
 
     fun showDialogDeleteNote(context: Context, note: Note,deleteNote:()-> Unit){
@@ -69,8 +71,8 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun showDialogBottomSheet(context: Context, list: MutableList<Categoria>){
-        DialogBottomSheet.showDialogBottomSheet(context,list){addCategoria(it)}
+    fun showDialogBottomSheet(scope: CoroutineScope,context: Context, list: MutableList<Categoria>){
+        DialogBottomSheet.showDialogBottomSheet(scope,context,list,{addCategoria(it)},{getListCategoriaSave()})
     }
 
     fun getListNotes() {
@@ -81,7 +83,16 @@ class NotesViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
-
+//
+    suspend fun getListCategoriaSave(): MutableList<Categoria> {
+        return try {
+            val list = notesRepository.getListCategories()  // Suponiendo que getListCategories es suspend
+            list
+        } catch (e: Exception) {
+            // Manejar error
+            mutableListOf() // Devolver una lista vacía en caso de error
+        }
+    }
     fun getListCategorias(){
         viewModelScope.launch {
             try {
