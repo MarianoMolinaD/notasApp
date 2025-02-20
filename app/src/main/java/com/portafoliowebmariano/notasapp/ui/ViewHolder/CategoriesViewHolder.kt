@@ -13,12 +13,12 @@ class CategoriesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemsCategoriasBinding.bind(view)
 
-    fun bin(item: Categoria) {
+    fun bin(item: Categoria,getColor:(Int) -> Unit) {
         binding.etCategoria.text = item.nombreCategoria
         binding.cvContainer.setCardBackgroundColor(item.color)
 
         binding.cvContainer.setOnClickListener {
-            Log.e("Categorias",item.id.toString())
+           getColor(item.color)
         }
     }
 }

@@ -7,5 +7,6 @@ data class NoteView(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     var title : String,
     var note : String,
-    var checked: Boolean
+    var checked: Boolean,
+    var color : Int
 )

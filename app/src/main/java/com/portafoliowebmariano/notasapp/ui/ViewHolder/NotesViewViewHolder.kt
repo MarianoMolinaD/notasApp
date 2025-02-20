@@ -12,7 +12,7 @@ class NotesViewViewHolder(view: View) : RecyclerView.ViewHolder(view){
    fun bin(lista : NoteView,onclickDele:(NoteView) -> Unit){
        binding.tvTitleNote.text = lista.title
        binding.tvBodyNote.text = lista.note
-
+       binding.llEncNote.setBackgroundColor(lista.color)
        binding.btnDeleteNote.setOnClickListener {
          onclickDele(lista)
        }

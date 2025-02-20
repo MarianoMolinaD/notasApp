@@ -39,13 +39,13 @@ class NotesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             modifierItem()
             binding.etUpdate.setText(item.note)
         }
-        binding.btnCLose.setOnClickListener {
+        binding.btnClose.setOnClickListener {
             binding.tvNote.isVisible = true
             binding.btnDelete.isVisible = true
             binding.btnUpdate.isVisible = true
             binding.etUpdate.isVisible = false
             binding.btnCheck.isVisible = false
-            binding.btnCLose.isVisible = false
+            binding.btnClose.isVisible = false
         }
         binding.btnCheck.setOnClickListener {
             val note = binding.etUpdate.text.toString().trim()
@@ -60,6 +60,6 @@ class NotesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.etUpdate.isVisible = true
         binding.etUpdate.setSelection(binding.etUpdate.text.length)
         binding.btnCheck.isVisible = true
-        binding.btnCLose.isVisible = true
+        binding.btnClose.isVisible = true
     }
 }

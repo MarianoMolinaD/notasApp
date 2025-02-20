@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -114,7 +115,23 @@ class NotesFragment() : Fragment() {
         notesViewModel.deleteNoteView(Note)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun controller() {
+
+        binding.btnNotas.setOnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> v.alpha = 0.5f  // Se oscurece al presionar
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> v.alpha = 1.0f // Vuelve a la normalidad
+            }
+            false
+        }
+        binding.btnCheck.setOnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> v.alpha = 0.5f  // Se oscurece al presionar
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> v.alpha = 1.0f // Vuelve a la normalidad
+            }
+            false
+        }
 
 
         binding.btnSettings.setOnClickListener {

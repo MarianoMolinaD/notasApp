@@ -6,6 +6,7 @@ import android.graphics.PorterDuff
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -54,11 +55,25 @@ class HomeFragment : Fragment() {
         contoller()
         controller()
     }
-    @SuppressLint("InflateParams")
+    @SuppressLint("InflateParams", "ClickableViewAccessibility")
     private fun controller() {
         binding.btnNotas.setOnClickListener {
            findNavController().navigate(R.id.action_homeFragment_to_notesFragment)
             toggleButtonColors(binding.btnNotas, binding.btnCheck)
+        }
+        binding.btnNotas.setOnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> v.alpha = 0.5f  // Se oscurece al presionar
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> v.alpha = 1.0f // Vuelve a la normalidad
+            }
+            false
+        }
+        binding.btnCheck.setOnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> v.alpha = 0.5f  // Se oscurece al presionar
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> v.alpha = 1.0f // Vuelve a la normalidad
+            }
+            false
         }
     }
     private fun initUI() {

@@ -60,11 +60,12 @@
     <LinearLayout
         android:id="@+id/container_btns"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_primario"
+        android:layout_height="56dp"
+        android:background="@color/white"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingVertical="8dp"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
@@ -73,7 +74,7 @@
             android:layout_height="35dp"
             android:layout_weight="1"
             android:src="@drawable/comprobacion"
-            app:tint="@color/white" />
+            app:tint="@color/color_primario" />
 
         <ImageView
             android:id="@+id/btn_notas"
@@ -81,8 +82,7 @@
             android:layout_height="35dp"
             android:layout_weight="1"
             android:src="@drawable/diario"
-            app:tint="@color/white" />
-
+            app:tint="@color/color_primario" />
     </LinearLayout>
 
 
@@ -90,10 +90,9 @@
         android:id="@+id/btn_MoreOption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/color_primario"
+        android:backgroundTint="@color/ColorSecundario"
         android:contentDescription="TODO"
         android:src="@drawable/ico_menu"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
@@ -108,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="12dp"
         android:layout_marginBottom="15dp"
-        android:backgroundTint="@color/color_primario"
+        android:backgroundTint="@color/ColorSecundario"
         android:src="@drawable/nota"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/btn_MoreOption"
@@ -122,7 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="12dp"
-        android:backgroundTint="@color/color_primario"
+        android:backgroundTint="@color/ColorSecundario"
         android:src="@drawable/add_cat"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/btn_MoreOption"
@@ -149,7 +148,7 @@
             android:layout_marginHorizontal="12dp"
             android:layout_marginVertical="5dp"
             android:text="Agregar nota"
-            android:textColor="@color/color_primario" />
+            android:textColor="@color/white" />
 
     </androidx.cardview.widget.CardView>
 
@@ -173,7 +172,7 @@
             android:layout_marginHorizontal="12dp"
             android:layout_marginVertical="5dp"
             android:text="Agregar categoria"
-            android:textColor="@color/color_primario" />
+            android:textColor="@color/white" />
 
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

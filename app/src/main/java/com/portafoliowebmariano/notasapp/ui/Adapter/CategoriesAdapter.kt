@@ -7,7 +7,7 @@ import com.portafoliowebmariano.notasapp.model.Categoria
 import com.portafoliowebmariano.notasapp.ui.ViewHolder.CategoriesViewHolder
 
 
-class CategoriesAdapter (private val listCategorias : MutableList<Categoria>):RecyclerView.Adapter<CategoriesViewHolder>() {
+class CategoriesAdapter (private val listCategorias : MutableList<Categoria>,private val getColor:(Int) -> Unit):RecyclerView.Adapter<CategoriesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoriesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return CategoriesViewHolder(layoutInflater.inflate(R.layout.items_categorias,parent,false))
@@ -17,6 +17,6 @@ class CategoriesAdapter (private val listCategorias : MutableList<Categoria>):Re
 
     override fun onBindViewHolder(holder: CategoriesViewHolder, position: Int) {
         val item = listCategorias[position]
-        holder.bin(item)
+        holder.bin(item, getColor)
     }
 }

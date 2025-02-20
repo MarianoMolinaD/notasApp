@@ -35,7 +35,7 @@ object DialogBottomSheet {
         var selectedButton: ImageButton? = null // Variable para guardar el botón seleccionado
         val originalButtonColors = mutableMapOf<ImageButton, Int>() // Guarda los colores originales de los botones
         var listCategories : MutableList<Categoria> = listCategorias
-
+        var colorS: Int
         bottomSheetDialog.setContentView(binding.root)
 
         // Lista de colores disponibles
@@ -58,7 +58,9 @@ object DialogBottomSheet {
 
         // Asignar colores a los botones y manejar la selección
 
-
+        fun getColor(color : Int){
+            colorS= color
+        }
         // Inicializar el adaptador para mostrar las categorías existentes
         @SuppressLint("NotifyDataSetChanged")
         fun initAdapter(list: MutableList<Categoria>) {
@@ -68,7 +70,7 @@ object DialogBottomSheet {
             recycler.layoutManager = layoutManager
             recycler.itemAnimator = null
 
-            val adapter = CategoriesAdapter(list)
+            val adapter = CategoriesAdapter(list,{getColor(it)})
             recycler.adapter = adapter
         }
 
@@ -91,14 +93,14 @@ object DialogBottomSheet {
 
             // Crear la nueva categoría y agregarla
             val categoria = Categoria(nombreCategoria = nombre, color = color)
+
+
             addCategory(categoria)
 
             scope.launch {
                 listCategories = getCategorias()
                 initAdapter(listCategories)
-
             }
-//            bottomSheetDialog.dismiss() // Cerrar el diálogo después de agregar la categoría
         }
 
         if (colorButtons.isNotEmpty() && colors.isNotEmpty()) {

@@ -7,14 +7,17 @@
     android:background="@color/white"
     tools:context=".ui.fragment.HomeFragment">
 
-
+    <!-- Barra superior -->
     <LinearLayout
         android:id="@+id/ll_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:background="@color/color_primario"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,51 +25,52 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="12dp"
-            android:layout_weight="4"
             android:text="CHECK LIST"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium" />
 
         <ImageView
             android:id="@+id/btn_Settings"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:layout_margin="12dp"
-            android:layout_weight="1"
+            android:layout_marginStart="8dp"
             android:background="?selectableItemBackgroundBorderless"
             android:src="@drawable/baseline_settings_24"
             android:visibility="invisible"
             app:tint="@color/white" />
     </LinearLayout>
-
     <ScrollView
-        android:id="@+id/sv_check"
+        android:id="@+id/sv_notas"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/container_btns"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll_title">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_notes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_notes" />
-
-
+    <!-- Lista de notas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_notes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        app:layout_constraintBottom_toTopOf="@+id/container_btns"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_title"
+        tools:listitem="@layout/item_notes" />
     </ScrollView>
-
+    <!-- Botones inferiores -->
     <LinearLayout
         android:id="@+id/container_btns"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_primario"
+        android:layout_height="56dp"
+        android:background="@color/white"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingVertical="8dp"
+        android:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <ImageView
@@ -75,7 +79,9 @@
             android:layout_height="35dp"
             android:layout_weight="1"
             android:src="@drawable/comprobacion"
-            app:tint="@color/white" />
+            app:tint="@color/color_primario"
+            android:background="?attr/selectableItemBackground"
+            />
 
         <ImageView
             android:id="@+id/btn_notas"
@@ -83,16 +89,18 @@
             android:layout_height="35dp"
             android:layout_weight="1"
             android:src="@drawable/diario"
-            app:tint="@color/white" />
+            app:tint="@color/color_primario"
+            android:background="?attr/selectableItemBackground"
 
+            />
     </LinearLayout>
 
-
+    <!-- Botón flotante -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_AddNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/color_primario"
+        android:backgroundTint="@color/ColorSecundario"
         android:src="@drawable/plus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,6 +109,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.88"
         app:tint="@color/white" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

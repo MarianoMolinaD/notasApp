@@ -3,19 +3,19 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 <!--    <color name="color_primario">#045F95</color>-->
-    <color name="color_primario">#506b9b</color>
-    <color name="ColorSecundario">#dfe0df</color>
+    <color name="color_primario">#021C4A</color>
+    <color name="ColorSecundario">#2E7D32</color>
 
 
 <!--    coleres para seleccionar-->
-    <color name="color1">#6cb6ec</color>
-    <color name="color2">#88f2da</color>
-    <color name="color3">#d7e7fd</color>
-    <color name="color4">#fde6f7</color>
-    <color name="color5">#e4dafd</color>
-    <color name="color6">#f7f4db</color>
-    <color name="color7">#f1d5c1</color>
-    <color name="color8">#d7deed</color>
+    <color name="color1">#C62828</color>
+    <color name="color2">#6A1B9A</color>
+    <color name="color3">#283593</color>
+    <color name="color4">#0277BD</color>
+    <color name="color5">#00695C</color>
+    <color name="color6">#558B2F</color>
+    <color name="color7">#FF8F00</color>
+    <color name="color8">#D84315</color>
 
 
 </resources>
